@@ -3,11 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cdeville <cdeville@student.42.fr>          #+#  +:+       +#+        */
+/*   By: cdeville <cdeville@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024-11-26 17:23:43 by cdeville          #+#    #+#             */
-/*   Updated: 2024-11-26 17:23:43 by cdeville         ###   ########.fr       */
+/*   Created: 2024/11/26 17:23:43 by cdeville          #+#    #+#             */
+/*   Updated: 2024/11/27 16:50:33 by cdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
+
+int	main(int argc, char *argv[])
+{
+	
+}

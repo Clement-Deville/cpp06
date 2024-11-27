@@ -6,11 +6,11 @@
 #    By: cdeville <cdeville@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/12 16:23:30 by peanut            #+#    #+#              #
-#    Updated: 2024/10/29 17:41:26 by cdeville         ###   ########.fr        #
+#    Updated: 2024/11/27 16:48:26 by cdeville         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME=Bureaucratie
+NAME=convert
 
 CC=c++
 
@@ -21,6 +21,7 @@ DEBUG = -g
 SRC_DIR = ./
 
 SRC =	main.cpp \
+		ScalarConverter.cpp
 
 SRCS = $(addprefix $(SRC_DIR), $(SRC))
 
