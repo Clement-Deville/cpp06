@@ -6,7 +6,7 @@
 /*   By: cdeville <cdeville@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 17:24:19 by cdeville          #+#    #+#             */
-/*   Updated: 2024/11/27 17:46:02 by cdeville         ###   ########.fr       */
+/*   Updated: 2024/11/28 12:59:48 by cdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 # include <string>
 # include <iostream>
+# include <cstdlib>
+# include <limits>
+# include <iomanip>
 
 class ScalarConverter
 {
