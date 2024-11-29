@@ -6,7 +6,7 @@
 /*   By: cdeville <cdeville@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 17:27:11 by cdeville          #+#    #+#             */
-/*   Updated: 2024/11/28 17:20:37 by cdeville         ###   ########.fr       */
+/*   Updated: 2024/11/29 11:24:03 by cdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,6 @@
 # define INT 1
 # define FLOAT 2
 # define DOUBLE 3
-
-inline std::ios_base&defaultfloat(std::ios_base& __base)
-{
-__base.unsetf(std::ios_base::floatfield);
-return __base;
-}
 
 int	detect_type(std::string &param)
 {
@@ -70,7 +64,8 @@ void	display(char c)
 	std::cout << "int: " << static_cast<int>(c) << std::endl;
 	std::cout << "float: " << static_cast<float>(c) << 'f' << std::endl;
 	std::cout << "double: " << static_cast<double>(c) << std::endl;
-	std::cout.unsetf(std::ios_base::floatfield); // setting float representation as default
+	std::cout.unsetf(std::ios::fixed | std::ios::scientific);
+	std::cout << std::setprecision(6);
 }
 
 void	display(long long_nb)
@@ -84,10 +79,6 @@ void	display(long long_nb)
 	else
 		std::cout << "char: Not displayable" << std::endl;
 	std::cout << std::fixed << std::setprecision(1);  // forcing un digit representation in decimal part
-	std::cout.setf(std::ios::fixed, std::ios::floatfield);
-	std::cout.setf(std::ios::showpoint);
-	// std::cout.setf(std::ios::showpoint);
-	// std::cout.setf(std::ios::adjustfield);
 	if (long_nb > std::numeric_limits<int>::max() || long_nb < std::numeric_limits<int>::min())
 	{
 		std::cout << "int: impossible" << std::endl;
@@ -100,9 +91,7 @@ void	display(long long_nb)
 		std::cout << "float: " << static_cast<float>(nb) << 'f' << std::endl;
 		std::cout << "double: " << static_cast<double>(nb) << std::endl;
 	}
-	// std::cout << std::fixed << std::setprecision(0);  // forcing un digit representation in decimal part
-	// std::cout.unsetf(std::ios_base::floatfield); // setting float representation as default
-	std::cout << defaultfloat;
+	std::cout.unsetf(std::ios::fixed | std::ios::scientific);
 	std::cout << std::setprecision(6);
 }
 
@@ -114,19 +103,15 @@ void	display(float f)
 	else
 		std::cout << "char: Not displayable" << std::endl;
 	if (static_cast<float>(f) - static_cast<int>(f) == 0.0)
-		std::cout << std::fixed << std::setprecision(1);  // forcing un digit representation in decimal part
-	std::cout.setf(std::ios::fixed, std::ios::floatfield);
-	std::cout.setf(std::ios::showpoint);
-	// std::cout.setf(std::ios::showpoint);
-	// std::cout.setf(std::ios::adjustfield);
+		std::cout << std::fixed << std::setprecision(1);  // forcing un digit representation in decimal part;
 	if (f != f || f > std::numeric_limits<int>::max() || f < std::numeric_limits<int>::min())
 		std::cout << "int: impossible" << std::endl;
 	else
 		std::cout << "int: " << static_cast<int>(f) << std::endl;
 	std::cout << "float: " << static_cast<float>(f) << 'f' << std::endl;
 	std::cout << "double: " << static_cast<double>(f) << std::endl;
-	// std::cout.unsetf(std::ios_base::floatfield); // setting float representation as default
-	std::cout << defaultfloat;
+	std::cout.unsetf(std::ios::fixed | std::ios::scientific);
+	std::cout << std::setprecision(6);
 }
 
 void	display(double d)
@@ -138,18 +123,14 @@ void	display(double d)
 		std::cout << "char: Not displayable" << std::endl;
 	if (static_cast<float>(d) - static_cast<int>(d) == 0.0)
 		std::cout << std::fixed << std::setprecision(1);  // forcing un digit representation in decimal part
-	std::cout.setf(std::ios::fixed, std::ios::floatfield);
-	std::cout.setf(std::ios::showpoint);
-	// std::cout.setf(std::ios::showpoint);
-	// std::cout.setf(std::ios::adjustfield);
 	if (d != d || d > std::numeric_limits<int>::max() || d < std::numeric_limits<int>::min())
 		std::cout << "int: impossible" << std::endl;
 	else
 		std::cout << "int: " << static_cast<int>(d) << std::endl;
 	std::cout << "float: " << static_cast<float>(d) << 'f' << std::endl;
 	std::cout << "double: " << static_cast<float>(d) << std::endl;
-	// std::cout.unsetf(std::ios_base::floatfield); // setting float representation as default
-	std::cout << defaultfloat;
+	std::cout.unsetf(std::ios::fixed | std::ios::scientific);
+	std::cout << std::setprecision(6);
 }
 
 void ScalarConverter::convert(std::string param)
@@ -159,31 +140,24 @@ void ScalarConverter::convert(std::string param)
 	case CHAR:
 	{
 		std::cout << "This is a char: " << param << std::endl;
-		//convertion
 		display(param[0]);
 	}
 		break;
 	case INT:
 	{
-		// Must detect OVER/UNDERFLOW
 		std::cout << "This is a INT: " << param << std::endl;
-		//convertion
 		display(std::atol(param.c_str()));
 	}
 		break;
 	case FLOAT:
 	{
-		// Must detect OVER/UNDERFLOW
 		std::cout << "This is a FLOAT: " << param << std::endl;
-		//convertion
 		display(static_cast<float>(std::atof(param.c_str())));
 	}
 		break;
 	case DOUBLE:
 	{
-		// Must detect OVER/UNDERFLOW
 		std::cout << "This is a DOUBLE: " << param << std::endl;
-		//convertion
 		display(std::atof(param.c_str()));
 	}
 		break;

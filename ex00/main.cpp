@@ -6,7 +6,7 @@
 /*   By: cdeville <cdeville@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 17:23:43 by cdeville          #+#    #+#             */
-/*   Updated: 2024/11/28 15:26:30 by cdeville         ###   ########.fr       */
+/*   Updated: 2024/11/29 10:47:16 by cdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int	main(int argc, char *argv[])
 
 	(void)argc;
 	(void)argv;
+	// float test = 3.1111111;
+	// std::cout << "Default test: " << test << std::endl;
 	std::cout << "Prompt: " << std::flush;
 	while (std::getline(std::cin, param))
 	{
