@@ -6,17 +6,35 @@
 /*   By: cdeville <cdeville@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 17:27:11 by cdeville          #+#    #+#             */
-/*   Updated: 2024/11/29 11:24:03 by cdeville         ###   ########.fr       */
+/*   Updated: 2024/11/29 16:13:23 by cdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
 
-# define NO_TYPE -1
-# define CHAR 0
-# define INT 1
-# define FLOAT 2
-# define DOUBLE 3
+/**========================================================================
+ *                            CANNONICAL DECLARATION
+ *========================================================================**/
+
+ScalarConverter::ScalarConverter()
+{
+	std::cout << "\e[0;32mScalarConverter Default constructor called\e[0m" << std::endl;
+}
+
+ScalarConverter::ScalarConverter(const ScalarConverter &Cpy)
+{
+	std::cout << "\e[0;32mScalarConverter Copy constructor called\e[0m" << std::endl;
+}
+
+ScalarConverter &ScalarConverter::operator=(const ScalarConverter &Cpy)
+{
+	std::cout << "\e[0;32mScalarConverter assignement operator called\e[0m" << std::endl;
+	return (*this);
+};
+
+/**========================================================================
+ *                           CONVERT FUNCTION
+ *========================================================================**/
 
 int	detect_type(std::string &param)
 {
@@ -133,7 +151,7 @@ void	display(double d)
 	std::cout << std::setprecision(6);
 }
 
-void ScalarConverter::convert(std::string param)
+void	ScalarConverter::convert(std::string param)
 {
 	switch (detect_type(param))
 	{
