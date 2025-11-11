@@ -6,7 +6,7 @@
 /*   By: cdeville <cdeville@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 17:24:19 by cdeville          #+#    #+#             */
-/*   Updated: 2024/11/29 16:11:56 by cdeville         ###   ########.fr       */
+/*   Updated: 2025/11/11 14:28:28 by cdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <cstdlib>
 # include <limits>
 # include <iomanip>
+# include <cmath>
 
 # define NO_TYPE -1
 # define CHAR 0
