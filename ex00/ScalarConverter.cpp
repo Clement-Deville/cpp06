@@ -6,7 +6,7 @@
 /*   By: cdeville <cdeville@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 17:27:11 by cdeville          #+#    #+#             */
-/*   Updated: 2025/11/11 14:48:00 by cdeville         ###   ########.fr       */
+/*   Updated: 2025/12/08 13:51:51 by cdeville         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,12 +148,7 @@ void	ScalarConverter::convert(std::string param)
 	case FLOAT:
 	{
 		std::cout << "This is a FLOAT: \"" << param << "\"" << std::endl;
-		if (param == "nanf")
-			param = "nan";
-		if (param == "+inff")
-			param = "+inf";
-		if (param == "-inff")
-			param = "-inf";
+		param.erase(param.size() - 1);
 		d_nb = std::strtof(param.c_str(), &end_ptr);
 		if (&param.c_str()[param.size()] != end_ptr)
 		{
